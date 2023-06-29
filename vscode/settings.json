@@ -1,0 +1,558 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.cursorSurroundingLines": 8,
+    "editor.inlineSuggest.enabled": true,
+    "editor.insertSpaces": false,
+    "editor.largeFileOptimizations": false,
+    "editor.lineNumbers": "on",
+    "editor.mouseWheelZoom": false,
+    "editor.snippetSuggestions": "bottom",
+    "editor.suggestSelection": "first",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.minimap.autohide": true,
+    "editor.minimap.enabled": false,
+    "editor.smoothScrolling": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.renderLineHighlight": "line",
+    "editor.selectionHighlight": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.guides.indentation": true,
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.occurrencesHighlight": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.wordWrap": "on",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.guides.bracketPairs": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.allowedCharacters": {
+        "〇": true
+    },
+    "editor.stickyScroll.enabled": true,
+    "editor.inlayHints.enabled": "on",
+    "editor.inlayHints.padding": false,
+    // "explorer.openEditors.visible": 0,
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "window.newWindowDimensions": "maximized",
+    "window.openFoldersInNewWindow": "off",
+    "extensions.ignoreRecommendations": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.showIcons": false, // removes icon from opened files in tabs
+    "workbench.editor.tabCloseButton": "off", // removes cross icon from tabs
+    "workbench.colorCustomizations": { // object that allows you to customize your color theme: https://code.visualstudio.com/docs/getstarted/theme-color-reference
+        // "tab.activeBorder": "#0000", // removes border to highlight active tabs (the colors formats are: #RGB, #RGBA, #RRGGBB or #RRGGBBAA)
+        "editorCursor.foreground": "#76b947",
+        "editor.lineHighlightBackground": "#292e42",
+        "notebook.focusedCellBorder": "#f59517",
+    },
+    "workbench.layoutControl.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "breadcrumbs.enabled": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.cwd": "",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.integrated.macOptionIsMeta": true,
+    "files.autoSave": "onFocusChange",
+    // vim settings
+    "vim.easymotion": true,
+    "vim.surround": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        // "<leader>+f+f": false,
+        // "<leader>+F+F": false
+    },
+    "vim.easymotionMarkerForegroundColorOneChar": "#DF5452",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "k",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "leader",
+                "K"
+            ],
+            "commands": [
+                "editor.action.showDefinitionPreviewHover"
+            ],
+            "silent": true
+        },
+        // {
+        //     "before": [
+        //         "leader",
+        //         "w"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.files.save",
+        //     ]
+        // },
+        {
+            "before": [
+                "leader",
+                "h"
+            ],
+            "commands": [
+                ":nohl",
+            ]
+        },
+        // {
+        //     "before": [
+        //         ":"
+        //     ],
+        //     "after": [
+        //         "<Nop>"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         ";"
+        //     ],
+        //     "after": [
+        //         ":"
+        //     ]
+        // },
+        {
+            "before": [
+                "leader",
+                "s"
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "f"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "S"
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "F"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ],
+            // "when": "editorTextFocus"
+        },
+        {
+            "before": [
+                "leader",
+                "b"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.showEditorsInActiveGroup"
+                }
+            ],
+            "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+        },
+        {
+            "before": [
+                "leader",
+                "x"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.toggleAuxiliaryBar"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "D"
+            ],
+            "commands": [
+                "editor.action.goToDeclaration"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": [
+                "z",
+                "a"
+            ],
+            "commands": [
+                "editor.toggleFold"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "g"
+            ],
+            "commands": [
+                "editor.action.marker.prevInFiles"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "g"
+            ],
+            "commands": [
+                "editor.action.marker.nextInFiles"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.editor.previousChange",
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.editor.nextChange"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "c",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument",
+            ],
+            "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+        },
+        {
+            "before": [
+                "leader",
+                "g",
+                "e"
+            ],
+            "commands": [
+                    "workbench.view.explorer",
+                    "revealInExplorer",
+                    "workbench.action.focusFirstEditorGroup"
+            ],
+            "when": "viewContainer.workbench.view.explorer.enabled"
+        },
+        {
+            "before": [
+                "leader",
+                "g",
+                "g"
+            ],
+            "commands": [
+                    "workbench.view.scm",
+                    "workbench.action.focusFirstEditorGroup"
+            ],
+            "when": "workbench.scm.active"
+        },
+        {
+            "before": [
+                "leader",
+                "g",
+                "d"
+            ],
+            "commands": [
+                    "workbench.view.debug",
+                    "workbench.action.focusFirstEditorGroup"
+            ],
+            "when": "viewContainer.workbench.view.debug.enabled"
+        },
+        {
+            "before": [
+                "leader",
+                "f",
+                "w"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.view.search"
+                }
+            ],
+            "when": "vim.active && vim.mode != 'Insert'"
+        },
+        {
+            "before": [
+                "leader",
+                "f",
+                "f"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen"
+                }
+            ],
+            "when": "vim.active && vim.mode != 'Insert'"
+        },
+        {
+            "before": [
+                "leader",
+                "f",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.showCommands",
+            ],
+            "when": "vim.active && vim.mode != 'Insert'"
+        },
+        {
+            "before": [
+                "<leader>",
+                "q",
+                "g",
+            ],
+            "commands": [
+                "workbench.action.closeEditorsInGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint",
+            ],
+            "when": "debuggersAvailable && vim.active && vim.mode!= 'Insert'"
+        },
+        {
+            "before": [
+                "<leader>",
+                "u"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "U"
+            ],
+            "commands": [
+                "references-view.findReferences"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "i",
+                "n"
+            ],
+            "commands": [
+                "references-view.showCallHierarchy"
+            ]
+        },
+        // -- rename symbol
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename",
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "p",
+                "y"
+            ],
+            "commands": [
+                "workbench.action.files.saveAll",
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": {
+                        "text": "clear \u000D"
+                    }
+                },
+                "workbench.action.terminal.focus",
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": {
+                        "text": "python '${file}'\u000D"
+                    }
+                },
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction"
+            ],
+            "when": "editorTextFocus && !editorReadonly"
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+                "editor.action.moveLinesDownAction"
+            ],
+            "when": "editorTextFocus && !editorReadonly"
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "commands": [
+                "undo"
+            ]
+        },
+        {
+            "before": [
+                "C-r"
+            ],
+            "commands": [
+                "redo"
+            ]
+        },
+        {
+            "before": [
+                "0"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "^"
+            ],
+            "after": [
+                "0"
+            ]
+        },
+    ],
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.maxComputationTime": 0,
+    "diffEditor.wordWrap": "off",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "jupyter.askForKernelRestart": false,
+    // language specific settings
+    "[json]": {
+        "editor.tabSize": 2,
+    },
+    "[lua]": {
+        "editor.tabSize": 2,
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.formatOnType": true
+    },
+    "python.terminal.executeInFileDir": true,
+    "python.formatting.autopep8Args": [
+        "--ignore",
+        "E402"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportUnsupportedDunderAll": "none"
+    },
+    "workbench.activityBar.visible": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+}
