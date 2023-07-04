@@ -5,12 +5,12 @@ return {
       ensure_installed = {
         "stylua",
         "shfmt",
-        "flake8",
         "clang-format",
         "black",
         "flake8",
         "pyright",
         "debugpy",
+        "prettierd",
       },
     },
   },

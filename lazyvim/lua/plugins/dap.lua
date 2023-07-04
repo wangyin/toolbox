@@ -1,7 +1,7 @@
 -- get the python path from the venv(like which python)
 -- get the conda env path
 local function get_python_path()
-  -- TODO: this is only compatible with linux
+  -- this is only compatible with linux
   -- Implement a version that works with windows as well
   local path = vim.fn.system("which python")
   -- right trim the '\n' in   path
@@ -10,6 +10,14 @@ local function get_python_path()
     return nil
   end
   return path
+end
+
+local function get_debugpy()
+  local path = require("mason-registry").get_package("debugpy"):get_install_path()
+  if path == "" then
+    return nil
+  end
+  return path .. "/venv/bin/python"
 end
 
 return {
@@ -46,16 +54,16 @@ return {
                 request = "launch",
                 cwd = vim.fn.getcwd(),
                 python = get_python_path(),
-                stopOnEntry = true,
+                stopOnEntry = false,
+                justMyCode = false,
                 -- console = "externalTerminal",
                 debugOptions = {},
                 program = vim.fn.expand("%:p"),
-              -- TODO: select args in neovim
                 args = {},
               },
             },
           }
-          config["configurations"][1]["justMyCode#json"] = "${justMyCode:true}"
+          -- config["configurations"][1]["justMyCode#json"] = "${justMyCode:true}"
           -- dump `config` to a json file
           local json = vim.fn.json_encode(config)
           -- create .vscode dir if not exists
@@ -73,45 +81,15 @@ return {
       },
     },
     config = function()
-      local dap = require("dap")
-      dap.adapters.python = {
-        type = "executable",
-        command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python3",
-        args = { "-m", "debugpy.adapter" },
-      }
-
-      require("dap-python").setup(get_python_path())
-      require("dap.ext.vscode").load_launchjs()
-      -- dap.configurations.python = {
-      --   {
-      --     -- The first three options are required by nvim-dap
-      --     type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
-      --     request = "launch",
-      --     name = "Launch file",
-      --     -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-      --     program = "${file}", -- This configuration will launch the current file if used.
-      --     args = function()
-      --       local cmd_args = vim.fn.input("CommandLine Args:")
-      --       local params = {}
-      --       for param in string.gmatch(cmd_args, "[^%s]+") do
-      --         table.insert(params, param)
-      --       end
-      --       return params
-      --     end,
-      --     pythonPath = function()
-      --       --The below line will work for virtualenvwrapper, as vim.env.VIRTUAL_ENV points to the active env directory if you use it
-      --       --Test the variable by running :lua print(vim.env.VIRTUAL_ENV) and find your path from there if it is defined
-      --       local conda = vim.fn.environ()["CONDA_PREFIX"]
-      --       if conda then
-      --         return conda .. "/bin/python"
-      --       end
-      --       -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-      --       -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-      --       -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable (done above).
-      --       return "/usr/bin/python"
-      --     end,
-      --   },
+      -- local dap = require("dap")
+      -- dap.adapters.python = {
+      --   type = "executable",
+      --   command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python3",
+      --   args = { "-m", "debugpy.adapter" },
       -- }
+
+      require("dap-python").setup(get_debugpy())
+      require("dap.ext.vscode").load_launchjs()
 
       local dap_breakpoint_color = {
         breakpoint = {
@@ -173,8 +151,6 @@ return {
       vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
       vim.fn.sign_define("DapLogPoint", dap_breakpoint.logpoint)
       vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
-
-      require("dap.ext.vscode").load_launchjs()
     end,
   },
   {
@@ -292,10 +268,5 @@ return {
         ["<leader>da"] = { name = "+adapters" },
       },
     },
-  },
-  -- virtual text for the debugger
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    opts = {},
   },
 }
