@@ -6,6 +6,11 @@ local ssh_configs = require("ssh")
 
 Tab.setup()
 
+wezterm.on("gui-startup", function()
+  local tab, pane, window = wezterm.mux.spawn_window{}
+  window:gui_window():maximize()
+end)
+
 return {
   font = wezterm.font('JetBrains Mono', { weight = 'Medium', italic = false }),
 	font_size = 13,
