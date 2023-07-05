@@ -23,7 +23,10 @@ end
 return {
   {
     "mfussenegger/nvim-dap",
-    dependencies = { "mfussenegger/nvim-dap-python" },
+    dependencies = {
+      "mfussenegger/nvim-dap-python",
+      "theHamsta/nvim-dap-virtual-text"
+    },
     lazy = true,
     keys = {
       { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
@@ -87,6 +90,11 @@ return {
       --   command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python3",
       --   args = { "-m", "debugpy.adapter" },
       -- }
+
+      require("nvim-dap-virtual-text").setup({
+        -- virt_text_pos = 'eol'
+        virt_text_pos = vim.fn.has 'nvim-0.10' == 1 and 'inline' or 'eol',
+      })
 
       require("dap-python").setup(get_debugpy())
       require("dap.ext.vscode").load_launchjs()
