@@ -1,10 +1,10 @@
 {
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.cursorSurroundingLines": 8,
+    "editor.cursorSurroundingLines": 10,
     "editor.inlineSuggest.enabled": true,
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": true,
     "editor.largeFileOptimizations": false,
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "relative",
     "editor.mouseWheelZoom": false,
     "editor.snippetSuggestions": "bottom",
     "editor.suggestSelection": "first",
@@ -38,13 +38,13 @@
     "editor.stickyScroll.enabled": true,
     "editor.inlayHints.enabled": "on",
     "editor.inlayHints.padding": false,
-    // "explorer.openEditors.visible": 0,
+    "explorer.openEditors.visible": 0,
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "window.newWindowDimensions": "maximized",
     "window.openFoldersInNewWindow": "off",
-    "extensions.ignoreRecommendations": true,
+    "extensions.ignoreRecommendations": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.editor.showIcons": false, // removes icon from opened files in tabs
     "workbench.editor.tabCloseButton": "off", // removes cross icon from tabs
@@ -71,6 +71,7 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "vim.foldfix": true,
     "vim.leader": "<space>",
     "vim.handleKeys": {
         "<C-a>": false,
@@ -183,7 +184,6 @@
             "commands": [
                 "workbench.action.toggleSidebarVisibility"
             ],
-            // "when": "editorTextFocus"
         },
         {
             "before": [
@@ -301,15 +301,36 @@
         {
             "before": [
                 "leader",
+                "c",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix",
+            ]
+        },
+        {
+            "before": [
+                "leader",
                 "g",
                 "e"
             ],
             "commands": [
                     "workbench.view.explorer",
-                    "revealInExplorer",
+                    // "revealInExplorer",
                     "workbench.action.focusFirstEditorGroup"
             ],
             "when": "viewContainer.workbench.view.explorer.enabled"
+        },
+        {
+            "before": [
+                "leader",
+                "g",
+                "r"
+            ],
+            "commands": [
+                    "revealInExplorer",
+            ],
+            "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
         },
         {
             "before": [
@@ -553,6 +574,6 @@
     "python.analysis.diagnosticSeverityOverrides": {
         "reportUnsupportedDunderAll": "none"
     },
-    "workbench.activityBar.visible": false,
     "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.activityBar.visible": false,
 }
