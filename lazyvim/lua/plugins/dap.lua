@@ -73,7 +73,7 @@ return {
           -- create .vscode dir if not exists
           vim.fn.mkdir(".vscode", "p")
           local ok, file = pcall(io.open, ".vscode/launch.json", "w")
-          if ok then
+          if ok and file~=nil then
             file:write(json)
             print("Generated .vscode/launch.json")
           else

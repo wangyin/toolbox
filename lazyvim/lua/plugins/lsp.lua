@@ -31,9 +31,9 @@ return {
       autoformat = false,
       -- LSP Server Settings
       -- @type lspconfig.options
-      servers = {
-        pyright = {},
-      },
+      -- servers = {
+      --   pyright = {},
+      -- },
     },
   },
   {
