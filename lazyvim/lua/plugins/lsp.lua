@@ -3,28 +3,21 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
+        -- "stylua",
         "shfmt",
-        "clang-format",
         "black",
-        "flake8",
-        "pyright",
-        "debugpy",
         "prettierd",
       },
     },
   },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        "lua_ls",
-        "pyright",
-        "jsonls",
-        "clangd",
-      },
-    },
-  },
+  -- {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   opts = {
+  --     ensure_installed = {
+  --       "lua_ls",
+  --     },
+  --   },
+  -- },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -42,13 +35,13 @@ return {
       local nls = require("null-ls")
       opts.sources = vim.tbl_extend("force", opts.sources, {
         -- Lua
-        nls.builtins.formatting.stylua,
+        -- nls.builtins.formatting.stylua,
 
         -- cpp
-        nls.builtins.formatting.clang_format,
+        -- nls.builtins.formatting.clang_format,
 
         -- python
-        nls.builtins.diagnostics.flake8,
+        -- nls.builtins.diagnostics.flake8,
         nls.builtins.formatting.black,
       })
     end,
