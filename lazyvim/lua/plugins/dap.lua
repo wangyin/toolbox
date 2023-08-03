@@ -79,7 +79,7 @@ return {
         desc = "Generate .vscode/launch.json",
       },
     },
-    opts = function(_, opts)
+    opts = function()
       require("nvim-dap-virtual-text").setup({
         -- virt_text_pos = 'eol'
         virt_text_pos = vim.fn.has 'nvim-0.10' == 1 and 'inline' or 'eol',
