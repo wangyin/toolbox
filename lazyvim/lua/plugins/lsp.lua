@@ -1,49 +1,28 @@
 return {
   {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        -- "stylua",
-        "shfmt",
-        "black",
-        "prettierd",
-      },
-    },
-  },
-  -- {
-  --   "williamboman/mason-lspconfig.nvim",
-  --   opts = {
-  --     ensure_installed = {
-  --       "lua_ls",
-  --     },
-  --   },
-  -- },
-  {
     "neovim/nvim-lspconfig",
     opts = {
       autoformat = false,
-      -- LSP Server Settings
-      -- @type lspconfig.options
-      -- servers = {
-      --   pyright = {},
-      -- },
+      diagnostics = {
+        virtual_text = false,
+        virtual_lines = false,
+      },
     },
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = vim.tbl_extend("force", opts.sources, {
-        -- Lua
-        -- nls.builtins.formatting.stylua,
-
-        -- cpp
-        -- nls.builtins.formatting.clang_format,
-
-        -- python
-        -- nls.builtins.diagnostics.flake8,
-        nls.builtins.formatting.black,
-      })
-    end,
+    'nvimdev/lspsaga.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter', -- optional
+      'nvim-tree/nvim-web-devicons'     -- optional
+    },
+    event = 'LspAttach',
+    keys = {
+      { "gp", "<cmd>Lspsaga peek_definition<cr>", desc = "Peek Definition" },
+    },
+    opts = {
+      lightbulb = {
+        enable = false,
+      }
+    },
   },
 }
