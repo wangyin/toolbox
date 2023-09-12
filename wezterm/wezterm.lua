@@ -44,6 +44,7 @@ return {
 	tab_max_width = 50,
 	hide_tab_bar_if_only_one_tab = true,
 	disable_default_key_bindings = false,
+  audible_bell = "Disabled",
 	colors = Theme.colors,
 	keys = Keys,
   ssh_domains = ssh_configs,
