@@ -85,6 +85,8 @@ return {
       },
     },
     opts = function()
+      require('dap').defaults.python.exception_breakpoints = {'raised'}
+
       require("nvim-dap-virtual-text").setup({
         -- virt_text_pos = 'eol'
         virt_text_pos = vim.fn.has 'nvim-0.10' == 1 and 'inline' or 'eol',
@@ -98,6 +100,12 @@ return {
     config = function()
       require("dap-python").setup(get_debugpy())
     end
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = {
+      ensure_installed = { "python" }
+    }
   },
   -- which key integration
   {
