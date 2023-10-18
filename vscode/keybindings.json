@@ -211,6 +211,11 @@
             "value": 36
         },
     },
+    {
+        "key": "tab",
+        "command": "togglePeekWidgetFocus",
+        "when": "inReferenceSearchEditor && vim.active && vim.mode != 'Insert' || referenceSearchVisible"
+    },
     // --- 资源管理器中对文件或目录的操作
     // 新建文件
     {

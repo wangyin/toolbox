@@ -38,6 +38,7 @@
     "editor.stickyScroll.enabled": true,
     "editor.inlayHints.enabled": "on",
     "editor.inlayHints.padding": false,
+    "editor.peekWidgetDefaultFocus": "editor",
     "explorer.openEditors.visible": 0,
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
@@ -58,7 +59,7 @@
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Catppuccin Mocha",
     "breadcrumbs.enabled": true,
-    "terminal.external.osxExec": "iTerm.app",
+    "terminal.external.osxExec": "wezterm.app",
     "terminal.integrated.cwd": "",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.enablePersistentSessions": false,
@@ -120,15 +121,6 @@
             ],
             "silent": true
         },
-        // {
-        //     "before": [
-        //         "leader",
-        //         "w"
-        //     ],
-        //     "commands": [
-        //         "workbench.action.files.save",
-        //     ]
-        // },
         {
             "before": [
                 "leader",
@@ -138,25 +130,9 @@
                 ":nohl",
             ]
         },
-        // {
-        //     "before": [
-        //         ":"
-        //     ],
-        //     "after": [
-        //         "<Nop>"
-        //     ]
-        // },
-        // {
-        //     "before": [
-        //         ";"
-        //     ],
-        //     "after": [
-        //         ":"
-        //     ]
-        // },
         {
             "before": [
-                "leader",
+                // "leader",
                 "s"
             ],
             "after": [
@@ -167,7 +143,7 @@
         },
         {
             "before": [
-                "leader",
+                // "leader",
                 "S"
             ],
             "after": [
@@ -231,6 +207,15 @@
             ],
             "commands": [
                 "editor.action.goToTypeDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "p"
+            ],
+            "commands": [
+                "editor.action.peekDefinition"
             ]
         },
         {
@@ -315,9 +300,9 @@
                 "e"
             ],
             "commands": [
-                    "workbench.view.explorer",
-                    // "revealInExplorer",
-                    "workbench.action.focusFirstEditorGroup"
+                "workbench.view.explorer",
+                // "revealInExplorer",
+                "workbench.action.focusFirstEditorGroup"
             ],
             "when": "viewContainer.workbench.view.explorer.enabled"
         },
@@ -328,7 +313,7 @@
                 "r"
             ],
             "commands": [
-                    "revealInExplorer",
+                "revealInExplorer",
             ],
             "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
         },
@@ -339,8 +324,8 @@
                 "g"
             ],
             "commands": [
-                    "workbench.view.scm",
-                    "workbench.action.focusFirstEditorGroup"
+                "workbench.view.scm",
+                "workbench.action.focusFirstEditorGroup"
             ],
             "when": "workbench.scm.active"
         },
@@ -351,8 +336,8 @@
                 "d"
             ],
             "commands": [
-                    "workbench.view.debug",
-                    "workbench.action.focusFirstEditorGroup"
+                "workbench.view.debug",
+                "workbench.action.focusFirstEditorGroup"
             ],
             "when": "viewContainer.workbench.view.debug.enabled"
         },
@@ -561,19 +546,20 @@
         "editor.tabSize": 2,
     },
     "[python]": {
-        "editor.defaultFormatter": "ms-python.python",
+        // "editor.defaultFormatter": "ms-python.python",
         "editor.insertSpaces": true,
         "editor.tabSize": 4,
         "editor.formatOnType": true
     },
     "python.terminal.executeInFileDir": true,
-    "python.formatting.autopep8Args": [
-        "--ignore",
-        "E402"
-    ],
     "python.analysis.diagnosticSeverityOverrides": {
         "reportUnsupportedDunderAll": "none"
     },
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.activityBar.visible": false,
-}
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true
+    }
