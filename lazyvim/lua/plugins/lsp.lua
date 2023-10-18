@@ -2,7 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      autoformat = false,
       diagnostics = {
         virtual_text = false,
         virtual_lines = false,
