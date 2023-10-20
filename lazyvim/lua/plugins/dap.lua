@@ -12,13 +12,6 @@ local function get_python_path()
   return path
 end
 
-local function get_debugpy()
-  local path = require("mason-registry").get_package("debugpy"):get_install_path()
-  if path == "" then
-    return nil
-  end
-  return path .. "/venv/bin/python"
-end
 
 return {
   {
@@ -50,62 +43,48 @@ return {
       {
         "<leader>dG",
         function()
-          local config = {
+          local python_config = {
             configurations = {
               {
-                name = "vscode json launcher",
+                name = "New VS Launcher",
                 type = "python",
                 request = "launch",
                 cwd = vim.fn.getcwd(),
                 python = get_python_path(),
                 stopOnEntry = false,
-                justMyCode = false,
-                -- console = "externalTerminal",
+                justMyCode = true,
                 debugOptions = {},
                 program = vim.fn.expand("%:p"),
                 args = {},
               },
             },
           }
-          -- config["configurations"][1]["justMyCode#json"] = "${justMyCode:true}"
-          -- dump `config` to a json file
-          local json = vim.fn.json_encode(config)
           -- create .vscode dir if not exists
           vim.fn.mkdir(".vscode", "p")
           local ok, file = pcall(io.open, ".vscode/launch.json", "w")
           if ok and file~=nil then
-            file:write(json)
+            file:write(vim.json.encode(python_config))
+            file:close()
             print("Generated .vscode/launch.json")
           else
             print("Error writing to file: " .. file)
           end
         end,
-        mode = "n",
         desc = "Generate .vscode/launch.json",
       },
     },
     opts = function()
       require('dap').defaults.python.exception_breakpoints = {'raised'}
-
-      require("nvim-dap-virtual-text").setup({
-        -- virt_text_pos = 'eol'
-        virt_text_pos = vim.fn.has 'nvim-0.10' == 1 and 'inline' or 'eol',
-      })
-
       require("dap.ext.vscode").load_launchjs()
     end,
   },
   {
-    "mfussenegger/nvim-dap-python",
-    config = function()
-      require("dap-python").setup(get_debugpy())
-    end
-  },
-  {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
-      ensure_installed = { "python" }
-    }
+      ensure_installed = {
+        "python"
+      },
+    },
   },
   -- which key integration
   {
