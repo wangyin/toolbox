@@ -74,7 +74,7 @@ return {
       },
     },
     opts = function()
-      require('dap').defaults.python.exception_breakpoints = {'raised'}
+      require('dap').defaults.python.exception_breakpoints = {'uncaught'}
       require("dap.ext.vscode").load_launchjs()
     end,
   },
