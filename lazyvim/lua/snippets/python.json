@@ -9,5 +9,14 @@
       "# Email: xwangyin@amazon.com",
       "# ========================================="
     ]
+  },
+  "args": {
+    "prefix": "args",
+    "body": [
+      "parser = argparse.ArgumentParser(prog='ProgramName', description='What the program does')",
+      "parser.add_argument('positional_arg')",
+      "parser.add_argument('--foo', help='foo help')",
+      "args = parser.parse_args()"
+    ]
   }
 }
