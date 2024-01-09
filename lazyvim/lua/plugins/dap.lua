@@ -16,6 +16,17 @@ end
 return {
   {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "mfussenegger/nvim-dap-python",
+      -- stylua: ignore
+      config = function()
+        local path = require("mason-registry").get_package("debugpy"):get_install_path()
+        local opts = {
+          pythonPath = get_python_path()
+        }
+        require("dap-python").setup(path .. "/venv/bin/python", opts)
+      end,
+    },
     keys = {
       { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
       { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
