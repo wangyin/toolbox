@@ -2,7 +2,6 @@ local wezterm = require("wezterm")
 local Tab = require("tab")
 local Theme = require("theme")
 local Keys = require("keys")
-local ssh_configs = require("ssh")
 
 Tab.setup()
 
