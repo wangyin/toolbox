@@ -105,10 +105,10 @@ local function get_current_working_folder_name(tab)
 
 	local HOME_DIR = os.getenv("HOME")
 	if cwd == HOME_DIR then
-		return "  ~"
+		return " ~"
 	end
 
-	return string.format("  %s", string.match(cwd, "[^/]+$"))
+	return string.format(" %s", string.match(cwd, "[^/]+$"))
 end
 
 function Tab.setup()
@@ -119,10 +119,10 @@ function Tab.setup()
 			{ Text = string.format(" %s  ", tab.tab_index + 1) },
 			"ResetAttributes",
 			{ Text = get_process(tab) },
-			{ Text = " " },
+			{ Text = "  " },
 			{ Text = get_current_working_folder_name(tab) },
 			{ Foreground = { Color = palette.base } },
-			{ Text = "  ▕" },
+			{ Text = " ▕" },
 		})
 	end)
 end
