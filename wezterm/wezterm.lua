@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 local Tab = require("tab")
-local Theme = require("theme")
 local Keys = require("keys")
 
 Tab.setup()
@@ -11,8 +10,10 @@ wezterm.on("gui-startup", function()
 end)
 
 return {
-  font = wezterm.font('JetBrains Mono', { weight = 'Medium', italic = false }),
+  font = wezterm.font('Hack Nerd Font Mono', { weight = 'Regular', italic = false }),
 	font_size = 13,
+  animation_fps = 60,
+  max_fps = 60,
 	underline_thickness = "200%",
 	underline_position = "-3pt",
 	enable_wayland = false,
@@ -21,12 +22,11 @@ return {
 	show_update_window = false,
 	check_for_updates = false,
 	line_height = 1.2,
-	-- window_decorations = "NONE",
 	window_close_confirmation = "NeverPrompt",
 	window_padding = {
 		left = 0,
 		right = 0,
-		top = 0,
+		top = 20,
 		bottom = 0,
 	},
 	initial_cols = 110,
@@ -39,14 +39,14 @@ return {
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
 	show_new_tab_button_in_tab_bar = false,
+  window_decorations = "RESIZE",
 	window_background_opacity = 0.9,
 	tab_max_width = 50,
 	hide_tab_bar_if_only_one_tab = true,
 	disable_default_key_bindings = false,
   audible_bell = "Disabled",
-	colors = Theme.colors,
+  color_scheme = "Catppuccin Mocha",
 	keys = Keys,
-  ssh_domains = ssh_configs,
 	hyperlink_rules = {
 		{
 			regex = "\\b\\w+://[\\w.-]+:[0-9]{2,15}\\S*\\b",
