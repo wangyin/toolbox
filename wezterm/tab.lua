@@ -1,84 +1,83 @@
 local wezterm = require("wezterm")
-local palette = require("theme").palette
 
 local Tab = {}
 
-local function get_process(tab)
+function Tab.get_process(tab)
 	local process_icons = {
 		["docker"] = {
-			{ Foreground = { Color = palette.blue } },
+			{ Foreground = { Color = "blue" } },
 			{ Text = "󰡨" },
 		},
 		["docker-compose"] = {
-			{ Foreground = { Color = palette.blue } },
+			{ Foreground = { Color = "blue" } },
 			{ Text = "󰡨" },
 		},
 		["nvim"] = {
-			{ Foreground = { Color = palette.green } },
+			{ Foreground = { Color = "green" } },
 			{ Text = "" },
 		},
 		["bob"] = {
-			{ Foreground = { Color = palette.blue } },
+			{ Foreground = { Color = "blue" } },
 			{ Text = "" },
 		},
 		["vim"] = {
-			{ Foreground = { Color = palette.green } },
+			{ Foreground = { Color = "green" } },
 			{ Text = "" },
 		},
 		["node"] = {
-			{ Foreground = { Color = palette.green } },
+			{ Foreground = { Color = "green" } },
 			{ Text = "󰋘" },
 		},
 		["zsh"] = {
-			{ Foreground = { Color = palette.overlay1 } },
+			{ Foreground = { Color = "gray" } },
 			{ Text = "" },
 		},
 		["bash"] = {
-			{ Foreground = { Color = palette.overlay1 } },
+			{ Foreground = { Color = "gray" } },
 			{ Text = "" },
 		},
 		["htop"] = {
-			{ Foreground = { Color = palette.yellow } },
+			{ Foreground = { Color = "yellow" } },
 			{ Text = "" },
 		},
 		["btop"] = {
-			{ Foreground = { Color = palette.rosewater } },
+			{ Foreground = { Color = "rosewater" } },
 			{ Text = "" },
 		},
 		["cargo"] = {
-			{ Foreground = { Color = palette.peach } },
+			{ Foreground = { Color = "peach" } },
 			{ Text = wezterm.nerdfonts.dev_rust },
 		},
 		["go"] = {
-			{ Foreground = { Color = palette.sapphire } },
+			{ Foreground = { Color = "sapphire "} },
 			{ Text = "" },
 		},
 		["git"] = {
-			{ Foreground = { Color = palette.peach } },
+			{ Foreground = { Color = "peach "} },
 			{ Text = "󰊢" },
 		},
 		["lazygit"] = {
-			{ Foreground = { Color = palette.mauve } },
+			{ Foreground = { Color = "mauve "} },
 			{ Text = "󰊢" },
 		},
 		["lua"] = {
-			{ Foreground = { Color = palette.blue } },
+			{ Foreground = { Color = "blue" } },
 			{ Text = "" },
 		},
 		["wget"] = {
-			{ Foreground = { Color = palette.yellow } },
+			{ Foreground = { Color = "yellow" } },
 			{ Text = "󰄠" },
 		},
 		["curl"] = {
-			{ Foreground = { Color = palette.yellow } },
+			{ Foreground = { Color = "yellow" } },
 			{ Text = "" },
 		},
 		["gh"] = {
-			{ Foreground = { Color = palette.mauve } },
+			{ Foreground = { Color = "mauve "} },
 			{ Text = "" },
 		},
 		["flatpak"] = {
-			{ Foreground = { Color = palette.blue } },
+			{ Foreground = { Color = "blue" } },
 			{ Text = "󰏖" },
 		},
 	}
@@ -91,11 +90,11 @@ local function get_process(tab)
 
 	return wezterm.format(
 		process_icons[process_name]
-			or { { Foreground = { Color = palette.sky } }, { Text = string.format("[%s]", process_name) } }
+			or { { Foreground = { Color = "sky "} }, { Text = string.format("[%s]", process_name) } }
 	)
 end
 
-local function get_current_working_folder_name(tab)
+function Tab.get_current_working_folder_name(tab)
 	local cwd_uri = tab.active_pane.current_working_dir
 
 	cwd_uri = cwd_uri:sub(8)
@@ -111,21 +110,4 @@ local function get_current_working_folder_name(tab)
 	return string.format(" %s", string.match(cwd, "[^/]+$"))
 end
 
-function Tab.setup()
-	wezterm.on("format-tab-title", function(tab)
-		return wezterm.format({
-			{ Attribute = { Intensity = "Half" } },
-			{ Foreground = { Color = palette.surface2 } },
-			{ Text = string.format(" %s  ", tab.tab_index + 1) },
-			"ResetAttributes",
-			{ Text = get_process(tab) },
-			{ Text = "  " },
-			{ Text = get_current_working_folder_name(tab) },
-			{ Foreground = { Color = palette.base } },
-			{ Text = " ▕" },
-		})
-	end)
-end
-
 return Tab
-
