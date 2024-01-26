@@ -74,35 +74,42 @@ c.hyperlink_rules = {
 	},
 }
 
-wezterm.on("gui-startup", function(cmd)
-	local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-	window:gui_window():maximize()
-end)
+wezterm.on(
+  "gui-startup",
+  function(cmd)
+    local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+    window:gui_window():maximize()
+  end
+)
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local palette = config.resolved_palette.tab_bar
-	local colors = {
-		fg = tab.is_active and palette.active_tab.bg_color or palette.inactive_tab.bg_color,
-		bg = palette.background,
-		text = config.resolved_palette.foreground,
-	}
+wezterm.on(
+  "format-tab-title",
+  function(tab, tabs, panes, config, hover, max_width)
+    local palette = config.resolved_palette.tab_bar
+    local colors = {
+      fg = tab.is_active and palette.active_tab.bg_color or palette.inactive_tab.bg_color,
+      bg = palette.background,
+      text = config.resolved_palette.foreground,
+    }
+    local process = Tab.get_process(tab)
 
-	return {
-		{ Foreground = { Color = colors.fg } },
-		{ Background = { Color = colors.bg } },
-		{ Text = wezterm.nerdfonts.ple_left_half_circle_thick },
-		"ResetAttributes",
-		-- { Attribute = { Intensity = "Half" } },
-		{ Foreground = { Color = colors.text } },
-		{ Text = string.format(" %s  ", tab.tab_index + 1) },
-		"ResetAttributes",
-		{ Text = Tab.get_process(tab) },
-		{ Text = "  " },
-		{ Text = Tab.get_current_working_folder_name(tab) },
-		{ Foreground = { Color = colors.fg } },
-		{ Background = { Color = colors.bg } },
-		{ Text = wezterm.nerdfonts.ple_right_half_circle_thick },
-	}
-end)
+    return {
+      { Foreground = { Color = colors.fg } },
+      { Background = { Color = colors.bg } },
+      { Text = "" },
+      "ResetAttributes",
+      { Foreground = { Color = colors.text } },
+      { Text = string.format(" %s  ", tab.tab_index + 1) },
+      process[1],
+      process[2],
+      { Foreground = { Color = colors.text }},
+      { Text = "  " },
+      { Text = Tab.get_current_working_folder_name(tab) },
+      { Foreground = { Color = colors.fg } },
+      { Background = { Color = colors.bg } },
+      { Text = "" },
+    }
+  end
+)
 
 return c
