@@ -24,6 +24,10 @@ function Tab.get_process(tab)
 			{ Foreground = { Color = "green" } },
 			{ Text = "" },
 		},
+		["ssh"] = {
+			{ Foreground = { Color = "gray" } },
+      { Text = "" },
+		},
 		["node"] = {
 			{ Foreground = { Color = "green" } },
 			{ Text = "󰋘" },
