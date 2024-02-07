@@ -28,6 +28,10 @@ function Tab.get_process(tab)
 			{ Foreground = { Color = "gray" } },
       { Text = "" },
 		},
+    ["tmux"] = {
+      { Foreground = {Color = "gray" } },
+      { Text = "" },
+    },
 		["node"] = {
 			{ Foreground = { Color = "green" } },
 			{ Text = "󰋘" },
