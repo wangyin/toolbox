@@ -8,10 +8,10 @@ if wezterm.config_builder then
 	c:set_strict_mode(true)
 end
 
-c.color_scheme = "Dracula (Official)"
+c.color_scheme = "Catppuccin Mocha"
 c.use_fancy_tab_bar = false
 c.show_new_tab_button_in_tab_bar = false
-c.font = wezterm.font("Hack Nerd Font Mono", { weight = "Regular", italic = false })
+c.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light", italic = false })
 c.font_size = 13
 c.animation_fps = 60
 c.max_fps = 60
@@ -45,8 +45,10 @@ c.window_background_opacity = 0.9
 c.tab_max_width = 50
 c.hide_tab_bar_if_only_one_tab = true
 c.audible_bell = "Disabled"
+c.leader = { key = ',', mods = 'CTRL' }
 c.disable_default_key_bindings = false
-c.keys = Keys
+c.keys = Keys.keys
+c.key_tables = Keys.key_tables
 c.hyperlink_rules = {
 	{
 		regex = "\\b\\w+://[\\w.-]+:[0-9]{2,15}\\S*\\b",
@@ -111,5 +113,15 @@ wezterm.on(
     }
   end
 )
+
+-- Show which key table is active in the status area
+wezterm.on('update-right-status', function(window, pane)
+  local name = window:active_key_table()
+  if name then
+    name = 'TABLE: ' .. name
+  end
+  window:set_right_status(name or '')
+end)
+
 
 return c
