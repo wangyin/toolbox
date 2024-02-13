@@ -86,7 +86,9 @@ return {
     },
     opts = function()
       require('dap').defaults.python.exception_breakpoints = {'uncaught'}
-      require("dap.ext.vscode").load_launchjs()
+      local vscode = require("dap.ext.vscode")
+      vscode.json_decode = require("neoconf.json.jsonc").decode_jsonc
+      vscode.load_launchjs()
     end,
   },
   {
