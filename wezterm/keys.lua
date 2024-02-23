@@ -46,8 +46,6 @@ local keys = {
 	{ key = "y", mods = "ALT", action = act.ActivateCopyMode },
 	{ key = "c", mods = "CTRL|SHIFT", action = act({ CopyTo = "Clipboard" }) },
 	{ key = "v", mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
-	{ key = "u", mods = "ALT", action = act({ ScrollByPage = -1 }) },
-	{ key = "d", mods = "ALT", action = act({ ScrollByPage = 1 }) },
 
 	-- CTRL+, followed by 'r' will put us in resize-pane
 	-- mode until we cancel that mode.
@@ -101,6 +99,8 @@ local key_tables = {
 		{ key = "l", action = act.ActivatePaneDirection("Right") },
 		{ key = "k", action = act.ActivatePaneDirection("Up") },
 		{ key = "j", action = act.ActivatePaneDirection("Down") },
+	  { key = "u", action = act({ ScrollByPage = -1 }) },
+	  { key = "d", action = act({ ScrollByPage = 1 }) },
 		{ key = "[", action = act.MoveTabRelative(-1) },
 		{ key = "]", action = act.MoveTabRelative(1) },
 		-- Cancel the mode by pressing escape
