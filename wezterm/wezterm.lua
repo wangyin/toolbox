@@ -8,7 +8,7 @@ if wezterm.config_builder then
 	c:set_strict_mode(true)
 end
 
-c.color_scheme = "Catppuccin Mocha"
+c.color_scheme = "tokyonight_night"
 c.use_fancy_tab_bar = false
 c.show_new_tab_button_in_tab_bar = false
 c.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light", italic = false })
@@ -37,13 +37,13 @@ c.inactive_pane_hsb = {
 	brightness = wezterm.GLOBAL.is_dark and 0.90 or 0.95,
 }
 c.enable_scroll_bar = false
-c.tab_bar_at_bottom = true
+c.tab_bar_at_bottom = false
 c.use_fancy_tab_bar = false
 c.show_new_tab_button_in_tab_bar = false
 c.window_decorations = "RESIZE"
 c.window_background_opacity = 0.9
 c.tab_max_width = 50
-c.hide_tab_bar_if_only_one_tab = true
+c.hide_tab_bar_if_only_one_tab = false
 c.audible_bell = "Disabled"
 c.leader = { key = ',', mods = 'CTRL' }
 c.disable_default_key_bindings = false
