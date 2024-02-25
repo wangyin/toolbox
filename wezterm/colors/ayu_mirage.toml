@@ -1,0 +1,61 @@
+[colors]
+ansi = [
+  "#191e2a",
+  "#ed8274",
+  "#a6cc70",
+  "#fad07b",
+  "#6dcbfa",
+  "#cfbafa",
+  "#90e1c6",
+  "#c7c7c7"
+]
+brights = [
+  "#686868",
+  "#f28779",
+  "#bae67e",
+  "#ffd580",
+  "#73d0ff",
+  "#d4bfff",
+  "#95e6cb",
+  "#ffffff"
+]
+foreground = "#cbccc6"
+background = "#1f2430"
+cursor_bg = "#ffcc66"
+cursor_border = "#ffcc66"
+cursor_fg = "#1f2430"
+selection_bg = "#33415e"
+selection_fg = "#cbccc6"
+scrollbar_thumb = "#33415e"
+compose_cursor = '#f2cdcd'
+split = "#6dcbfa"
+
+[colors.tab_bar]
+background = '#11111b'
+inactive_tab_edge = '#313244'
+
+[colors.tab_bar.active_tab]
+bg_color = "#ffd580"
+fg_color = '#11111b'
+
+[colors.tab_bar.inactive_tab]
+bg_color = '#181825'
+fg_color = '#cdd6f4'
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = '#1e1e2e'
+fg_color = "#6dcbfa"
+
+[colors.tab_bar.new_tab]
+bg_color = '#313244'
+fg_color = "#6dcbfa"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = '#45475a'
+fg_color = "#6dcbfa"
+intensity = "Bold"
+
+[metadata]
+aliases = []
+author = "YWang"
+name = "Ayu Mirage"
