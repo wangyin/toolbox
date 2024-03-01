@@ -7,6 +7,7 @@ return {
   { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
   { import = "astrocommunity.bars-and-lines.lualine-nvim" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
+  { import = "astrocommunity.color.mini-hipatterns" },
   { import = "astrocommunity.color.transparent-nvim" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
