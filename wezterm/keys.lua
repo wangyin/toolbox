@@ -46,12 +46,12 @@ local keys = {
 	{ key = "y", mods = "ALT", action = act.ActivateCopyMode },
 	{ key = "c", mods = "CTRL|SHIFT", action = act({ CopyTo = "Clipboard" }) },
 	{ key = "v", mods = "CTRL|SHIFT", action = act({ PasteFrom = "Clipboard" }) },
-	{ key = "1", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "a" } ), act.SendKey( { key = "1" } ) }) },
-	{ key = "2", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "a" } ), act.SendKey( { key = "2" } ) }) },
-	{ key = "3", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "a" } ), act.SendKey( { key = "3" } ) }) },
-	{ key = "4", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "a" } ), act.SendKey( { key = "4" } ) }) },
-	{ key = "5", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "a" } ), act.SendKey( { key = "5" } ) }) },
-	{ key = "`", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "a" } ), act.SendKey( { key = "z" } ) }) },
+	{ key = "1", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "1" } ) }) },
+	{ key = "2", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "2" } ) }) },
+	{ key = "3", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "3" } ) }) },
+	{ key = "4", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "4" } ) }) },
+	{ key = "5", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "5" } ) }) },
+	{ key = "`", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "z" } ) }) },
 
 	-- CTRL+, followed by 'r' will put us in resize-pane
 	-- mode until we cancel that mode.
