@@ -52,7 +52,7 @@ return {
       { "<leader>dT", function() require("dap").clear_breakpoints() end, desc = "Clear all breakpoints" },
       { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
       {
-        "<leader>dG",
+        "<leader>dv",
         function()
           local python_config = {
             configurations = {

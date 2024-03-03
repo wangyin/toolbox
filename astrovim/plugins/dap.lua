@@ -20,7 +20,7 @@ return {
       { "<leader>dj", function() require("dap").down() end, desc = "Down" },
       { "<leader>dk", function() require("dap").up() end, desc = "Up" },
       {
-        "<leader>dG",
+        "<leader>dv",
         function()
           local python_config = {
             configurations = {
