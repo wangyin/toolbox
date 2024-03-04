@@ -25,6 +25,15 @@ return {
       return opts
     end,
   },
+  {
+    "s1n7ax/nvim-window-picker",
+    opts = function(_, config)
+      config = require("astronvim.utils").extend_tbl(config, {
+        hint = "floating-big-letter",
+      })
+      return config
+    end,
+  },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
