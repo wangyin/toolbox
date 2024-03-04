@@ -36,5 +36,6 @@ return {
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.register/nvim-neoclip-lua" },
   { import = "astrocommunity.split-and-window.edgy-nvim" },
+  { import = "astrocommunity.syntax.hlargs-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
 }
