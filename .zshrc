@@ -72,7 +72,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=68'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=98'
 # bindkey '^I' autosuggest-accept
 # bindkey '\e[Y' autosuggest-accept
 
