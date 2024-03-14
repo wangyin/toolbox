@@ -36,6 +36,10 @@ return {
     ["<Char-0xAA>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<Char-0xAB>"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
   },
+  v = {
+    ["J"] = { ":move '>+1<CR>gv-gv", desc = "Move selected 1 line down" },
+    ["K"] = { ":move '<-2<CR>gv-gv", desc = "Move selected 1 line down" },
+  },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
