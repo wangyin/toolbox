@@ -14,7 +14,7 @@ return {
     opts = function(_, config)
       config.lsp = {
         signature = {
-          enabled = false,
+          enabled = true,
         },
       }
       return config
