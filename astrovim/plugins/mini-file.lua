@@ -40,18 +40,6 @@ end
 return {
   {
     "echasnovski/mini.files",
-    keys = {
-      {
-        "<leader>fe",
-        function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end,
-        desc = "Mini Explorer (directory of current file)",
-      },
-      {
-        "<leader>fE",
-        function() require("mini.files").open(vim.loop.cwd(), true) end,
-        desc = "Mini Explorer (cwd)",
-      },
-    },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },

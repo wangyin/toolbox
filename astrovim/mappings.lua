@@ -35,6 +35,9 @@ return {
     -- quick save
     ["<Char-0xAA>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<Char-0xAB>"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
+    ["<leader>fe"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
+    ["<leader>e"] = { function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Mini Explorer (directory of current file)" },
+    ["<leader>E"] = { function() require("mini.files").open(vim.loop.cwd(), true) end, desc = "Mini Explorer (cwd)" },
   },
   v = {
     ["J"] = { ":move '>+1<CR>gv-gv", desc = "Move selected 1 line down" },
