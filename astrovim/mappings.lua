@@ -38,10 +38,12 @@ return {
     ["<leader>fe"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
     ["<leader>e"] = { function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Mini Explorer (directory of current file)" },
     ["<leader>E"] = { function() require("mini.files").open(vim.loop.cwd(), true) end, desc = "Mini Explorer (cwd)" },
+    ["m"] = { '<plug>(matchup-%)', desc = "Match Up" },
   },
   v = {
     ["J"] = { ":move '>+1<CR>gv-gv", desc = "Move selected 1 line down" },
     ["K"] = { ":move '<-2<CR>gv-gv", desc = "Move selected 1 line down" },
+    ["m"] = { '<plug>(matchup-%)', desc = "Match Up" },
   },
   t = {
     -- setting a mapping to false will disable it
