@@ -51,6 +51,10 @@ local keys = {
 	{ key = "3", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "3" } ) }) },
 	{ key = "4", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "4" } ) }) },
 	{ key = "5", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "5" } ) }) },
+	{ key = "6", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "6" } ) }) },
+	{ key = "7", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "7" } ) }) },
+	{ key = "8", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "8" } ) }) },
+	{ key = "9", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "9" } ) }) },
 	{ key = "`", mods = "CTRL", action = act.Multiple({ act.SendKey( {mods = "CTRL", key = "b" } ), act.SendKey( { key = "z" } ) }) },
 
 	-- CTRL+, followed by 'r' will put us in resize-pane
