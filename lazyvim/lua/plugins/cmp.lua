@@ -6,6 +6,9 @@ return {
     keys = function()
       return {}
     end,
+    config = function()
+        require("luasnip.loaders.from_vscode").load({ paths = "./lua/snippets/" })
+    end,
   },
   -- then: setup supertab in cmp
   {
