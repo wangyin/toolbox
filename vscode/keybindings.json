@@ -55,23 +55,10 @@
         "command": "list.select",
         "when": "listFocus && !inputFocus"
     },
-    // {
-    //     "key": "enter",
-    //     "command": "filesExplorer.openFilePreserveFocus",
-    //     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
-    // },
     {
         "key": "enter",
         "command": "search.focus.nextInputBox",
         "when": "hasSearchResult && inputBoxFocus"
-    },
-    {
-        "key": "ctrl+shift+h",
-        "command": "workbench.action.focusLeftGroup"
-    },
-    {
-        "key": "ctrl+shift+l",
-        "command": "workbench.action.focusRightGroup"
     },
     {
         "key": "ctrl+shift+a",
@@ -123,11 +110,6 @@
         "command": "notebook.cell.expandCellOutput",
         "when": "notebookCellHasOutputs && notebookCellListFocused && !inputFocus && notebookCellOutputIsCollapsed"
     },
-    // {
-    //     "key": "shift+;",
-    //     "command": "workbench.action.showCommands",
-    //     "when": "vim.active && vim.mode != 'Insert'"
-    // },
     {
         "key": "shift+l",
         "command": "workbench.action.nextEditor",
@@ -272,12 +254,12 @@
     },
     // vim terminal
     {
-        "key": "ctrl+shift+j",
+        "key": "ctrl+]",
         "command": "workbench.action.terminal.focusNext",
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
     {
-        "key": "ctrl+shift+k",
+        "key": "ctrl+[",
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
@@ -292,12 +274,17 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+shift+\\",
+        "key": "ctrl+=",
         "command": "workbench.action.terminal.new",
         "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
     },
+    {
+        "key": "ctrl+-",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalHasBeenCreated || terminalIsOpen || terminalProcessSupported"
+    },
     { // maxmize terminal
-        "key": "ctrl+shift+m",
+        "key": "ctrl+z",
         "command": "workbench.action.toggleMaximizedPanel",
         "when": "terminalFocus"
     },
